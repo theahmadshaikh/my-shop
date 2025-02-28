@@ -1,0 +1,122 @@
+1. Required JSON Format
+
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Product A",
+      "description": "A sample product.",
+      "price": 29.99,
+      "image": "imageA.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Product B",
+      "description": "Another sample product.",
+      "price": 49.99,
+      "image": "imageB.jpg"
+    }
+  ]
+}
+
+2.Pseudo Code for Required Functions
+FUNCTION fetchProducts():
+    READ 'db.json' file
+    CONVERT JSON data into a list of products
+    CALL displayProducts(products)
+
+FUNCTION displayProducts(products):
+    CLEAR existing product grid
+    FOR EACH product IN products:
+        CREATE a new product card with image, title, description, price, and "Add to Cart" button
+        APPEND product card to the product grid
+
+
+3.Cart Operations
+
+FUNCTION addToCart(id, title, price, image):
+    SEARCH for product in cart
+    IF product exists:
+        INCREMENT product quantity
+    ELSE:
+        ADD new product with quantity = 1 to cart
+    UPDATE cart display
+
+FUNCTION removeFromCart(id):
+    FIND product in cart
+    REMOVE product from cart
+    UPDATE cart display
+
+
+
+4. Cart Display Updates
+FUNCTION updateCartDisplay():
+    CLEAR current cart display
+    FOR EACH product IN cart:
+        CREATE a cart item with image, title, price, quantity, and remove button
+        APPEND item to cart section
+    CALCULATE total price and average price
+    UPDATE cart count in UI
+
+
+5.Sorting and Filtering
+
+FUNCTION sortCartAscending():
+    SORT cart items by price in ascending order
+    UPDATE cart display
+
+FUNCTION sortCartDescending():
+    SORT cart items by price in descending order
+    UPDATE cart display
+
+FUNCTION applyPriceFilter():
+    READ minPrice and maxPrice from input fields
+    FOR EACH cart item:
+        IF item price is WITHIN range:
+            DISPLAY item
+        ELSE:
+            HIDE item
+
+
+6.Cart Sidebar Operations
+
+FUNCTION openCart():
+    DISPLAY cart sidebar
+    CALL updateCartDisplay()
+
+FUNCTION closeCart():
+    HIDE cart sidebar
+
+FUNCTION clearCart():
+    EMPTY cart list
+    UPDATE cart display
+    SHOW message "Your cart is empty"
+
+
+7. 3. Dummy JSON Example for Understanding
+{
+  "products": [
+    {
+      "id": 101,
+      "title": "Laptop",
+      "description": "High-performance laptop with 16GB RAM.",
+      "price": 999.99,
+      "image": "laptop.jpg"
+    },
+    {
+      "id": 102,
+      "title": "Smartphone",
+      "description": "Latest smartphone with 128GB storage.",
+      "price": 699.99,
+      "image": "smartphone.jpg"
+    },
+    {
+      "id": 103,
+      "title": "Headphones",
+      "description": "Noise-canceling wireless headphones.",
+      "price": 199.99,
+      "image": "headphones.jpg"
+    }
+  ]
+}
+

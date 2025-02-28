@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>MyShop</h1>
+        </div>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartCount">0</span>
+        </div>
+    </header>
+
+    <!-- Product Grid -->
+    <main>
+        <div class="product-grid">
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button onclick="closeCart()"><i class="fas fa-times"></i></button>
+        </div>
+    
+        <!-- Filter Section -->
+        <div class="cart-filter">
+            <h3>Filter by Price</h3>
+            <div class="filter-inputs">
+                <input type="number" id="minPrice" placeholder="Min Price" min="0">
+                <input type="number" id="maxPrice" placeholder="Max Price" min="0">
+                <button onclick="applyPriceFilter()">Apply Filter</button>
+            </div>
+        </div>
+    
+        <!-- Sort Section -->
+        <div class="cart-sort">
+            <h3>Sort by Price</h3>
+            <button id="sortAsc" onclick="sortCartAscending()">Ascending</button>
+            <button id="sortDesc" onclick="sortCartDescending()">Descending</button>
+        </div>
+    
+        <!-- Cart Items Section -->
+        <div id="cartItems">
+            <p id="emptyCartMessage" class="hidden">Your cart is empty</p>
+        </div>
+    
+        <div class="cart-total">
+            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+            <h3>Average Price: $<span id="cartAverage">0.00</span></h3>
+        </div>
+    
+        <!-- Clear Cart Button -->
+        <div class="cart-actions">
+            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+    
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
