@@ -3,70 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyShop</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <!-- Font Awesome for Icons -->
+    <title>Modern E-commerce Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/products.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="logo">
-            <h1>MyShop</h1>
-        </div>
-        <div class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cartCount">0</span>
-        </div>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>MyShop</h1>
+            </div>
+            <div class="cart-container">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Product Grid -->
     <main>
-        <div class="product-grid">
-        </div>
+        <section class="products-container" id="productsContainer">
+            <!-- Products will be dynamically loaded here -->
+            <div class="loading">Loading products...</div>
+        </section>
+
+        <aside class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart" id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <div class="cart-summary">
+                <div class="cart-info">
+                    <p>Total Items: <span id="totalItems">0</span></p>
+                    <p>Average Price: $<span id="averagePrice">0.00</span></p>
+                </div>
+                <div class="cart-total">
+                    <h3>Total: $<span id="totalPrice">0.00</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button class="sort-btn" id="sortBtn">Sort by Price</button>
+                    <button class="filter-btn" id="filterBtn">Filter Products</button>
+                    <button class="clear-btn" id="clearBtn">Clear Cart</button>
+                    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+                </div>
+            </div>
+        </aside>
     </main>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar">
-        <div class="cart-header">
-            <h2>Your Cart</h2>
-            <button onclick="closeCart()"><i class="fas fa-times"></i></button>
-        </div>
+    <div class="overlay" id="overlay"></div>
     
-        <!-- Filter Section -->
-        <div class="cart-filter">
-            <h3>Filter by Price</h3>
-            <div class="filter-inputs">
-                <input type="number" id="minPrice" placeholder="Min Price" min="0">
-                <input type="number" id="maxPrice" placeholder="Max Price" min="0">
-                <button onclick="applyPriceFilter()">Apply Filter</button>
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-content">
+            <h3>Filter Products</h3>
+            <div class="filter-form">
+                <label for="maxPrice">Maximum Price ($):</label>
+                <input type="number" id="maxPrice" min="0" value="100">
+                <div class="filter-buttons">
+                    <button class="apply-filter" id="applyFilterBtn">Apply Filter</button>
+                    <button class="cancel-filter" id="cancelFilterBtn">Cancel</button>
+                </div>
             </div>
         </div>
-    
-        <!-- Sort Section -->
-        <div class="cart-sort">
-            <h3>Sort by Price</h3>
-            <button id="sortAsc" onclick="sortCartAscending()">Ascending</button>
-            <button id="sortDesc" onclick="sortCartDescending()">Descending</button>
-        </div>
-    
-        <!-- Cart Items Section -->
-        <div id="cartItems">
-            <p id="emptyCartMessage" class="hidden">Your cart is empty</p>
-        </div>
-    
-        <div class="cart-total">
-            <h3>Total: $<span id="cartTotal">0.00</span></h3>
-            <h3>Average Price: $<span id="cartAverage">0.00</span></h3>
-        </div>
-    
-        <!-- Clear Cart Button -->
-        <div class="cart-actions">
-            <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
-        </div>
     </div>
-    
 
-    <script src="./script/script.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
